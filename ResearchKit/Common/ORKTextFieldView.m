@@ -155,7 +155,11 @@ static NSString *const FilledBulletString = @"\u25CF";
         [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(textFieldTextDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:self];
         [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(textFieldTextDidEndEditing:) name:UITextFieldTextDidEndEditingNotification object:self];
         [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(textFieldTextDidChange:) name:UITextFieldTextDidChangeNotification object:self];
-        
+
+        self.layer.cornerRadius=8.0f;
+        self.layer.masksToBounds=YES;
+        self.layer.borderColor= [[ORKColor(ProjectBackgroundColorKey) colorWithAlphaComponent:0.2] CGColor];
+        self.layer.borderWidth= 1.0f;
     }
     return self;
 }
