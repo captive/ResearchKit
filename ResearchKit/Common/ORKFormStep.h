@@ -161,6 +161,9 @@ ORK_CLASS_AVAILABLE
  */
 @property (nonatomic, copy, readonly) NSString *identifier;
 
+
+@property (nonatomic, copy, nullable) NSString *sectionTitle;
+
 /**
  A Boolean value indicating whether the form item is optional.
  

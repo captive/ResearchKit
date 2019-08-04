@@ -703,6 +703,7 @@
         // Actual item
         } else {
             ORKAnswerFormat *answerFormat = [item impliedAnswerFormat];
+            
 
             BOOL multiCellChoices = ([singleSectionTypes containsObject:@(answerFormat.questionType)] &&
                                      NO == [answerFormat isKindOfClass:[ORKValuePickerAnswerFormat class]]);
@@ -712,27 +713,40 @@
             BOOL scale = (answerFormat.questionType == ORKQuestionTypeScale);
             
             BOOL valuePicker = [answerFormat isKindOfClass:[ORKValuePickerAnswerFormat class]];
-
-            // Items require individual section
-            if (multiCellChoices || multilineTextEntry || scale || valuePicker) {
-                // Add new section
-                section = [[ORKTableSection alloc]  initWithSectionIndex:_allSections.count];
-                [_allSections addObject:section];
-
-                // Save title
-                section.title = item.text;
-
-                [section addFormItem:item];
-
-                // following item should start a new section
-                section = nil;
-            } else {
-                // In case no section available, create new one.
-                if (section == nil) {
+            
+            if (item.sectionTitle == nil) {
+                // OLD
+                // Items require individual section
+                if (multiCellChoices || multilineTextEntry || scale || valuePicker) {
+                    // Add new section
                     section = [[ORKTableSection alloc]  initWithSectionIndex:_allSections.count];
                     [_allSections addObject:section];
+                    
+                    // Save title
+                    section.title = item.text;
+                    
+                    [section addFormItem:item];
+                    
+                    // following item should start a new section
+                    section = nil;
+                } else {
+                    // In case no section available, create new one.
+                    if (section == nil) {
+                        section = [[ORKTableSection alloc]  initWithSectionIndex:_allSections.count];
+                        [_allSections addObject:section];
+                    }
+                    [section addFormItem:item];
                 }
-                [section addFormItem:item];
+            }else {
+                if ((section == nil || ![section.title isEqualToString:item.sectionTitle]) ) {
+                    section = [[ORKTableSection alloc]  initWithSectionIndex:_allSections.count];
+                    [_allSections addObject:section];
+                    // Save title
+                    section.title = item.sectionTitle;
+                    [section addFormItem:item];
+                }else {
+                    [section addFormItem:item];
+                }
             }
         }
     }
