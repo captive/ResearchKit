@@ -22,7 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		00B1F7852241503900D022FE /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1F7842241503900D022FE /* Speech.framework */; };
+		00B1F7852241503900D022FE /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1F7842241503900D022FE /* Speech.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		106FF29E1B663FCE004EACF2 /* ORKHolePegTestPlaceStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 106FF29C1B663FCE004EACF2 /* ORKHolePegTestPlaceStep.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		106FF29F1B663FCE004EACF2 /* ORKHolePegTestPlaceStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 106FF29D1B663FCE004EACF2 /* ORKHolePegTestPlaceStep.m */; };
 		106FF2A21B665B86004EACF2 /* ORKHolePegTestPlaceStepViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 106FF2A01B665B86004EACF2 /* ORKHolePegTestPlaceStepViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -643,7 +643,7 @@
 		B1A860F61A9693C400EA57B7 /* consent_06@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B1A860E81A9693C400EA57B7 /* consent_06@3x.m4v */; };
 		B1A860F71A9693C400EA57B7 /* consent_07@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B1A860E91A9693C400EA57B7 /* consent_07@3x.m4v */; };
 		B1C0F4E41A9BA65F0022C153 /* ResearchKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1C0F4E11A9BA65F0022C153 /* ResearchKit.strings */; };
-		B1C7955E1A9FBF04007279BA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C7955D1A9FBF04007279BA /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		B1C7955E1A9FBF04007279BA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C7955D1A9FBF04007279BA /* HealthKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B8760F2B1AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B8760F291AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.h */; };
 		B8760F2C1AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8760F2A1AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.m */; };
 		BA0AA6941EAEC0B600671ACE /* ORKStroopContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA0AA68E1EAEC0B600671ACE /* ORKStroopContentView.h */; };
@@ -4919,6 +4919,7 @@
 		B183A5931A8535D100C76870 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
@@ -4967,6 +4968,7 @@
 		B183A5941A8535D100C76870 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
