@@ -125,6 +125,7 @@ static const CGFloat HeadlineStackViewSpacing = 4.0;
     _titleLabel.numberOfLines = 0;
     _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _titleLabel.textAlignment = NSTextAlignmentNatural;
+    _titleLabel.textColor = ORKColor(ProjectBackgroundColorKey);
     [_titleLabel setFont:[self titleLabelFont]];
 }
 

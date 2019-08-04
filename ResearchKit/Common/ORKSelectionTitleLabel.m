@@ -32,7 +32,7 @@
 #import "ORKSelectionTitleLabel.h"
 
 #import "ORKHelpers_Internal.h"
-
+#import "ORKSkin.h"
 
 @implementation ORKSelectionTitleLabel
 
@@ -41,6 +41,15 @@
     UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleHeadline];
     const CGFloat defaultSize = 17;
     return ORKMediumFontWithSize([[descriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue] + 18 - defaultSize);
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.textColor = ORKColor(ProjectBackgroundColorKey);
+    }
+    return self;
 }
 
 @end

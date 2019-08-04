@@ -134,7 +134,8 @@ static const CGFloat LabelLeadingPadding = 10.0;
             CGRect lineBounds = CGRectMake(_leftRightMargin, self.containerView.bounds.size.height - 1.0, self.containerView.bounds.size.width - 2 * _leftRightMargin, 0.5);
             lineLayer.path = [UIBezierPath bezierPathWithRect:lineBounds].CGPath;
             lineLayer.zPosition = 0.0f;
-            [lineLayer setFillColor:[[UIColor ork_midGrayTintColor] CGColor]];
+//            [lineLayer setFillColor:[[UIColor ork_midGrayTintColor] CGColor]];
+            [lineLayer setFillColor: [ORKColor(ProjectFrontendColorKey) CGColor]];
 
         }
         [_contentMaskLayer addSublayer:foreLayer];
@@ -337,7 +338,8 @@ static const CGFloat LabelLeadingPadding = 10.0;
     }
     _checkView.layer.cornerRadius = CheckViewDimension * 0.5;
     _checkView.layer.borderWidth = CheckViewBorderWidth;
-    _checkView.layer.borderColor = self.tintColor.CGColor;
+//    _checkView.layer.borderColor = self.tintColor.CGColor;
+    _checkView.layer.borderColor = [ORKColor(ProjectBackgroundColorKey) CGColor];
     _checkView.layer.masksToBounds = YES;
     _checkView.contentMode = UIViewContentModeCenter;
     [self.containerView addSubview:_checkView];
@@ -412,7 +414,8 @@ static const CGFloat LabelLeadingPadding = 10.0;
         if (_cellSelected) {
             _checkView.backgroundColor = self.tintColor;
             _checkView.image = [[UIImage imageNamed:@"checkmark" inBundle:ORKBundle() compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            _checkView.tintColor = UIColor.whiteColor;
+//            _checkView.tintColor = UIColor.whiteColor;
+            _checkView.tintColor = ORKColor(ProjectFrontendColorKey);
         }
         else {
             _checkView.backgroundColor = UIColor.clearColor;

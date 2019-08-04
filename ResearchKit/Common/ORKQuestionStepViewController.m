@@ -472,8 +472,12 @@ typedef NS_ENUM(NSInteger, ORKQuestionSection) {
 }
 
 - (void)setSkipButtonItem:(UIBarButtonItem *)skipButtonItem {
-    [super setSkipButtonItem:skipButtonItem];
-    
+    UIBarButtonItem * button = nil;
+    //TODO only skip phone
+    if ([self.step.identifier isEqualToString: @"phoneStep"]) {
+        button = skipButtonItem;
+    }
+    [super setSkipButtonItem:button];
     _navigationFooterView.skipButtonItem = self.skipButtonItem;
     [self updateButtonStates];
 }

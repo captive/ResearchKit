@@ -33,10 +33,11 @@
 
 #import "ORKHelpers_Internal.h"
 
-
+NSString* const  ProjectBackgroundColorKey = @"ProjectBackgroundColorKey";
+NSString* const ProjectFrontendColorKey = @"ProjectFrontendColorKey";
 NSString *const ORKSignatureColorKey = @"ORKSignatureColorKey";
 NSString *const ORKBackgroundColorKey = @"ORKBackgroundColorKey";
-NSString *const ORKConsentBackgroundColorKey = @"ORKConsentBackgroundColorKey";
+NSString *const ORKConsentBackgroundColorKey = @"ProjectBackgroundColorKey";
 NSString *const ORKToolBarTintColorKey = @"ORKToolBarTintColorKey";
 NSString *const ORKLightTintColorKey = @"ORKLightTintColorKey";
 NSString *const ORKDarkTintColorKey = @"ORKDarkTintColorKey";
@@ -117,12 +118,18 @@ static NSMutableDictionary *colors() {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         colors = [@{
+                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.06 green:0.41 blue:0.22 alpha:1.0],
+                    ProjectFrontendColorKey: [UIColor colorWithRed:0.08 green:0.78 blue:0.38 alpha:1.0],
                     ORKSignatureColorKey: ORKRGB(0x000000),
-                    ORKBackgroundColorKey: [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0],
+//                    ORKBackgroundColorKey: [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0],
+                    ORKBackgroundColorKey: [UIColor colorWithRed:0.06 green:0.41 blue:0.22 alpha:1.0],
                     ORKConsentBackgroundColorKey: ORKRGB(0xffffff),
                     ORKToolBarTintColorKey: ORKRGB(0xffffff),
                     ORKLightTintColorKey: ORKRGB(0xeeeeee),
                     ORKDarkTintColorKey: ORKRGB(0x888888),
+//                    ORKToolBarTintColorKey: [UIColor whiteColor],
+//                    ORKLightTintColorKey: [UIColor colorWithRed:0.08 green:0.78 blue:0.38 alpha:1.0],
+//                    ORKDarkTintColorKey: [UIColor colorWithRed:0.06 green:0.41 blue:0.22 alpha:1.0],
                     ORKCaptionTextColorKey: ORKRGB(0xcccccc),
                     ORKBlueHighlightColorKey: [UIColor colorWithRed:0.0 green:122.0 / 255.0 blue:1.0 alpha:1.0],
                     ORKChartDefaultTextColorKey: [UIColor lightGrayColor],
@@ -133,11 +140,14 @@ static NSMutableDictionary *colors() {
                     ORKGraphScrubberThumbColorKey: [UIColor colorWithWhite:1.0 alpha:1.0],
                     ORKAuxiliaryImageTintColorKey: [UIColor colorWithRed:228.0 / 255.0 green:233.0 / 255.0 blue:235.0 / 255.0 alpha:1.0],
                     ORKNavigationContainerColorKey: [UIColor colorWithRed:249.0 / 255.0 green:249.0 / 255.0 blue:251.0 / 255.0 alpha:0.0],
+                    
                     ORKNavigationContainerShadowColorKey: [UIColor blackColor],
-                    ORKProgressLabelColorKey: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:142.0/255.0 alpha:1.0],
+                    ORKProgressLabelColorKey: [UIColor whiteColor],
+//                    ORKProgressLabelColorKey: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:142.0/255.0 alpha:1.0],
                     ORKiPadBackgroundViewColorKey: [UIColor colorWithRed:249.0 / 255.0 green:249.0 / 255.0 blue:251.0 / 255.0 alpha:1.0],
                     ORKTopContentImageViewBackgroundColorKey: (ORKRGB(0xD7D7D7)),
-                    ORKBulletItemTextColorKey: [UIColor colorWithRed:0.56 green:0.56 blue:0.58 alpha:1.0]
+//                    ORKBulletItemTextColorKey: [UIColor colorWithRed:0.56 green:0.56 blue:0.58 alpha:1.0]
+                    ORKBulletItemTextColorKey: [UIColor whiteColor]
                     } mutableCopy];
     });
     return colors;

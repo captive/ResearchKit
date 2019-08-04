@@ -35,6 +35,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+ORK_EXTERN NSString *const  ProjectBackgroundColorKey;
+ORK_EXTERN NSString *const  ProjectFrontendColorKey;
+
 /// Color used for toolbar
 ORK_EXTERN NSString *const ORKToolBarTintColorKey;
 

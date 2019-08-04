@@ -34,6 +34,7 @@
 #import "ORKBodyItem.h"
 #import "ORKBodyContainerView.h"
 #import "ORKSkin.h"
+#import "ORKInstructionStepContainerView.h"
 
 
 /**
@@ -355,6 +356,11 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     if (!_titleLabel) {
         _titleLabel = [ORKTitleLabel new];
     }
+    if (self.delegate != nil && [self.delegate isKindOfClass: [ORKInstructionStepContainerView class]]) {
+        _titleLabel.textColor = [UIColor blackColor];
+    }else {
+        _titleLabel.textColor = [UIColor whiteColor];
+    }
     [self addSubview:_titleLabel];
     [self setupTitleLabelConstraints];
 }
@@ -440,6 +446,12 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
 - (void)setupTextLabel {
     if (!_textLabel) {
         _textLabel = [UILabel new];
+        if (self.delegate != nil && [self.delegate isKindOfClass: [ORKInstructionStepContainerView class]]) {
+            _textLabel.textColor = [UIColor blackColor];
+        }else {
+            _textLabel.textColor = [UIColor whiteColor];
+        }
+        
     }
     UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
     [_textLabel setFont:[UIFont fontWithDescriptor:descriptor size:[[descriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue]]];

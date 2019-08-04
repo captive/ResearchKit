@@ -40,6 +40,7 @@
     if (self) {
         self.numberOfLines = 2;
         self.textAlignment = NSTextAlignmentLeft;
+        self.textColor = [UIColor whiteColor];
     }
     return self;
 }

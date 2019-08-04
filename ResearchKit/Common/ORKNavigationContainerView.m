@@ -112,6 +112,9 @@ static const CGFloat shadowRadius = 1.0;
     if (!_cancelButton) {
         _cancelButton = [ORKBorderedButton new];
         _cancelButtonView = [UIView new];
+        _cancelButton.tintColor = [UIColor whiteColor];
+        _cancelButton.normalTintColor = [UIColor whiteColor];
+        _cancelButton.disableTintColor = [UIColor colorWithWhite:1 alpha:0.7];
     }
     [_cancelButton setTitle:nil forState:UIControlStateNormal];
     [_cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -183,6 +186,9 @@ static const CGFloat shadowRadius = 1.0;
 - (void)setupSkipButton {
     if (!_skipButton) {
         _skipButton = [ORKBorderedButton new];
+        _skipButton.tintColor = [UIColor whiteColor];
+        _skipButton.normalTintColor = [UIColor whiteColor];
+        _skipButton.disableTintColor = [UIColor colorWithWhite:1 alpha:0.7];
         _skipButtonView = [UIView new];
     }
     _skipButton.exclusiveTouch = YES;
@@ -192,7 +198,7 @@ static const CGFloat shadowRadius = 1.0;
     _skipButtonView.translatesAutoresizingMaskIntoConstraints = NO;
     [_skipButtonView addSubview:_skipButton];
     if (_appTintColor) {
-        _skipButton.normalTintColor = _appTintColor;
+//        _skipButton.normalTintColor = _appTintColor;
     }
     [self setSkipButtonConstraints];
 }
