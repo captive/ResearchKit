@@ -300,7 +300,7 @@
 @interface ORKFormStepViewController () <UITableViewDataSource, UITableViewDelegate, ORKFormItemCellDelegate, ORKTableContainerViewDelegate, ORKTextChoiceCellGroupDelegate, ORKChoiceOtherViewCellDelegate, ORKLearnMoreViewDelegate>
 
 @property (nonatomic, strong) ORKTableContainerView *tableContainer;
-@property (nonatomic, strong) UITableView *tableView;
+
 @property (nonatomic, strong) ORKStepContentView *headerView;
 
 @property (nonatomic, strong) NSMutableDictionary *savedAnswers;
@@ -318,7 +318,7 @@
     ORKAnswerDefaultSource *_defaultSource;
     ORKNavigationContainerView *_navigationFooterView;
     NSMutableSet *_formItemCells;
-    NSMutableArray<ORKTableSection *> *_sections;
+    
     NSMutableArray<ORKTableSection *> *_allSections;
     NSMutableArray<ORKFormItem *> *_hiddenFormItems;
     NSMutableArray<ORKTableCellItem *> *_hiddenCellItems;
@@ -404,6 +404,18 @@
     UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
 }
 
+- (NSString*)getIdentifierFromIndexPath: (NSIndexPath*) indexPath {
+    ORKTableSection *section = _sections[indexPath.section];
+    ORKTableCellItem *cellItem = [section items][indexPath.row];
+    ORKFormItem *formItem = cellItem.formItem;
+    return formItem.identifier;
+}
+
+-(void)setCellAnswer:(NSString*) value withCell:(UITableViewCell*) tableCell{
+    ORKFormItemCell *cell = (ORKFormItemCell *)tableCell;
+    cell.answer  = value;
+}
+
 - (void)updateDefaults:(NSMutableDictionary *)defaults {
     _savedDefaults = defaults;
     
@@ -457,6 +469,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             ORKStrongTypeOf(weakSelf) strongSelf = weakSelf;
             [strongSelf updateDefaults:defaults];
+            
         });
         
     });
@@ -507,9 +520,14 @@
 }
 
 - (void)setSkipButtonItem:(UIBarButtonItem *)skipButtonItem {
-    [super setSkipButtonItem:skipButtonItem];
+    UIBarButtonItem * button = nil;
+    //TODO only skip phone
+    if ([self.step.identifier isEqualToString: @"phoneStep"]) {
+        button = skipButtonItem;
+    }
+    [super setSkipButtonItem:button];
     
-    _navigationFooterView.skipButtonItem = skipButtonItem;
+    _navigationFooterView.skipButtonItem = self.skipButtonItem;
     [self updateButtonStates];
 }
 
@@ -692,9 +710,11 @@
             BOOL multilineTextEntry = (answerFormat.questionType == ORKQuestionTypeText && [(ORKTextAnswerFormat *)answerFormat multipleLines]);
 
             BOOL scale = (answerFormat.questionType == ORKQuestionTypeScale);
+            
+            BOOL valuePicker = [answerFormat isKindOfClass:[ORKValuePickerAnswerFormat class]];
 
             // Items require individual section
-            if (multiCellChoices || multilineTextEntry || scale) {
+            if (multiCellChoices || multilineTextEntry || scale || valuePicker) {
                 // Add new section
                 section = [[ORKTableSection alloc]  initWithSectionIndex:_allSections.count];
                 [_allSections addObject:section];
@@ -744,6 +764,9 @@
 
 - (BOOL)allNonOptionalFormItemsHaveAnswers {
     ORKTaskResult *taskResult = self.taskViewController.result;
+    if (taskResult == nil) {
+        return NO;
+    }
     for (ORKFormItem *item in [self formItems]) {
         BOOL hideFormItem = [item.hidePredicate evaluateWithObject:@[taskResult]
                                              substitutionVariables:@{ORKResultPredicateTaskIdentifierVariableName : taskResult.identifier}];

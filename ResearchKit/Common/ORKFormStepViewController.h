@@ -30,8 +30,9 @@
 
 
 @import UIKit;
-#import <ResearchKit/ORKStepViewController.h>
+@class ORKTableSection;
 
+#import <ResearchKit/ORKStepViewController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -48,6 +49,13 @@ NS_ASSUME_NONNULL_BEGIN
 ORK_CLASS_AVAILABLE
 @interface ORKFormStepViewController : ORKStepViewController
 
+@property (nonatomic, nullable, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray<ORKTableSection *> *sections;
+
+- (void)setAnswer:(id)answer forIdentifier:(NSString *)identifier;
+- (void)updateDefaults:(NSMutableDictionary *)defaults;
+- (NSString*)getIdentifierFromIndexPath: (NSIndexPath*) indexPath;
+-(void)setCellAnswer:(id) value withCell:(UITableViewCell*) tableCell;
 @end
 
 NS_ASSUME_NONNULL_END
