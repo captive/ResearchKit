@@ -215,7 +215,8 @@
     }
     cell.immediateNavigation = YES;
     ORKStep *step = _steps[indexPath.row];
-    ORKStepResult *stepResult = [_resultSource stepResultForStepIdentifier:step.identifier];
+//    ORKStepResult *stepResult = [_resultSource stepResultForStepIdentifier:step.identifier];
+    ORKStepResult *stepResult = [self reviewedStepResultForStepIdentifier:step.identifier];
     [cell setPrimaryText:step.title ? : step.text];
     [cell setDetailText:[self answerStringForStep:step withStepResult:stepResult]];
     return cell;
@@ -267,6 +268,47 @@
         answerString = [answerStrings componentsJoinedByString:@"\n\n"];
     }
     return answerString;
+}
+
+- (ORKStepResult* ) reviewedStepResultForStepIdentifier: (NSString*) identifier {
+    ORKStepResult* stepResult = nil;
+    
+    for (ORKResult* result in ((ORKTaskResult *)_resultSource).results) {
+        if ([result.identifier isEqualToString: self.step.identifier]) {
+            for (ORKResult* reviewedResult in ((ORKStepResult *)result).results) {
+                if ([reviewedResult.identifier isEqualToString:identifier] ){
+                    stepResult = (ORKStepResult*)reviewedResult;
+                    break;
+                }
+            }
+        }else {
+            if ([result.identifier isEqualToString:identifier]) {
+                stepResult = (ORKStepResult*)result;
+            }
+        }
+    }
+    if (stepResult == nil) {
+        stepResult = [_resultSource stepResultForStepIdentifier:identifier];
+    }
+    return stepResult;
+}
+
+- (ORKStepResult *)result {
+    NSArray* results =  ((ORKTaskResult *)_resultSource).results;
+    ORKStepResult* parentResult = super.result;
+    
+    NSMutableDictionary<NSString*, ORKResult*> *resultDictionary = [NSMutableDictionary new];
+    for (ORKResult* result in results) {
+        if ([result.identifier isEqualToString:parentResult.identifier]) {
+            for (ORKResult* reviewedResult in ((ORKStepResult *)result).results) {
+                [resultDictionary setObject:reviewedResult forKey:reviewedResult.identifier];
+            }
+        }else {
+            [resultDictionary setObject:result forKey:result.identifier];
+        }
+    }
+    parentResult.results = resultDictionary.allValues;
+    return parentResult;
 }
 
 #pragma mark UITableViewDelegate
