@@ -115,6 +115,11 @@
     _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [_tableContainer sizeHeaderToFit];
+}
+
 - (void)stepDidChange {
     [super stepDidChange];
     
