@@ -118,11 +118,16 @@ static NSMutableDictionary *colors() {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         colors = [@{
-                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.06 green:0.41 blue:0.22 alpha:1.0],
-                    ProjectFrontendColorKey: [UIColor colorWithRed:0.08 green:0.78 blue:0.38 alpha:1.0],
+//                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.00 green:0.09 blue:0.36 alpha:1.0],
+//                    ProjectFrontendColorKey: [UIColor colorWithRed:1.00 green:0.36 blue:0.22 alpha:1.0],
+                    
+                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.28 green:0.30 blue:0.34 alpha:1.0],
+                    ProjectFrontendColorKey: [UIColor colorWithRed:0.85 green:0.09 blue:0.17 alpha:1.0],
+                    
                     ORKSignatureColorKey: ORKRGB(0x000000),
 //                    ORKBackgroundColorKey: [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0],
-                    ORKBackgroundColorKey: [UIColor colorWithRed:0.06 green:0.41 blue:0.22 alpha:1.0],
+//                    ORKBackgroundColorKey: [UIColor colorWithRed:0.00 green:0.09 blue:0.36 alpha:1.0],
+                    ORKBackgroundColorKey:[UIColor colorWithRed:0.28 green:0.30 blue:0.34 alpha:1.0],
                     ORKConsentBackgroundColorKey: ORKRGB(0xffffff),
                     ORKToolBarTintColorKey: ORKRGB(0xffffff),
                     ORKLightTintColorKey: ORKRGB(0xeeeeee),

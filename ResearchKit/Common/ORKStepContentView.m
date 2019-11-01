@@ -357,7 +357,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
         _titleLabel = [ORKTitleLabel new];
     }
     if (self.delegate != nil && [self.delegate isKindOfClass: [ORKInstructionStepContainerView class]]) {
-        _titleLabel.textColor = [UIColor blackColor];
+        _titleLabel.textColor = [UIColor whiteColor];
     }else {
         _titleLabel.textColor = [UIColor whiteColor];
     }
@@ -447,7 +447,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     if (!_textLabel) {
         _textLabel = [UILabel new];
         if (self.delegate != nil && [self.delegate isKindOfClass: [ORKInstructionStepContainerView class]]) {
-            _textLabel.textColor = [UIColor blackColor];
+            _textLabel.textColor = [UIColor whiteColor];
         }else {
             _textLabel.textColor = [UIColor whiteColor];
         }
