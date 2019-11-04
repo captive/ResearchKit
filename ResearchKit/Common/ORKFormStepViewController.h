@@ -55,7 +55,8 @@ ORK_CLASS_AVAILABLE
 - (void)setAnswer:(id)answer forIdentifier:(NSString *)identifier;
 - (void)updateDefaults:(NSMutableDictionary *)defaults;
 - (NSString*)getIdentifierFromIndexPath: (NSIndexPath*) indexPath;
--(void)setCellAnswer:(id) value withCell:(UITableViewCell*) tableCell;
+- (void)setCellAnswer:(id) value withCell:(UITableViewCell*) tableCell;
+- (void)updateButtonStates;
 @end
 
 NS_ASSUME_NONNULL_END
