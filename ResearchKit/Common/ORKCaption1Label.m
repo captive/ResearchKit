@@ -32,9 +32,18 @@
 #import "ORKCaption1Label.h"
 
 #import "ORKHelpers_Internal.h"
-
+#import "ORKSkin.h"
 
 @implementation ORKCaption1Label
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.textColor = ORKColor(ProjectBackgroundColorKey);
+    }
+    return self;
+}
 
 + (UIFont *)defaultFont {
     // medium , 17

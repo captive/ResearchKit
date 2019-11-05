@@ -118,16 +118,14 @@ static NSMutableDictionary *colors() {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         colors = [@{
-//                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.00 green:0.09 blue:0.36 alpha:1.0],
-//                    ProjectFrontendColorKey: [UIColor colorWithRed:1.00 green:0.36 blue:0.22 alpha:1.0],
                     
-                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.28 green:0.30 blue:0.34 alpha:1.0],
-                    ProjectFrontendColorKey: [UIColor colorWithRed:0.85 green:0.09 blue:0.17 alpha:1.0],
+                    ProjectBackgroundColorKey: [UIColor colorWithRed:0.29 green:0.68 blue:0.82 alpha:1.0],
+                    ProjectFrontendColorKey: [UIColor colorWithRed:0.18 green:0.78 blue:0.30 alpha:1.0],
                     
                     ORKSignatureColorKey: ORKRGB(0x000000),
 //                    ORKBackgroundColorKey: [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0],
 //                    ORKBackgroundColorKey: [UIColor colorWithRed:0.00 green:0.09 blue:0.36 alpha:1.0],
-                    ORKBackgroundColorKey:[UIColor colorWithRed:0.28 green:0.30 blue:0.34 alpha:1.0],
+                    ORKBackgroundColorKey: [UIColor colorWithRed:0.29 green:0.68 blue:0.82 alpha:1.0],
                     ORKConsentBackgroundColorKey: ORKRGB(0xffffff),
                     ORKToolBarTintColorKey: ORKRGB(0xffffff),
                     ORKLightTintColorKey: ORKRGB(0xeeeeee),
@@ -272,7 +270,7 @@ static CGFloat ORKGetMetricForScreenType(ORKScreenMetric metric, ORKScreenType s
         {        200,       250,       200,       180,       150,       250,       250,       250},      // ORKScreenMetricMinimumGameViewHeightForMemoryGame
         {        162,       162,       162,       120,       116,       240,       240,       240},      // ORKScreenMetricMinimumStepHeaderHeightForTowerOfHanoiPuzzle
         {         60,        60,        60,        60,        44,        60,        60,        60},      // ORKScreenMetricTableCellDefaultHeight
-        {         55,        55,        55,        55,        44,        55,        55,        55},      // ORKScreenMetricTextFieldCellHeight
+        {         55,        55,        55,        55,        44,        60,        60,        60},      // ORKScreenMetricTextFieldCellHeight
         {         36,        36,        36,        36,        26,        36,        36,        36},      // ORKScreenMetricChoiceCellFirstBaselineOffsetFromTop,
         {         24,        24,        24,        24,        18,        24,        24,        24},      // ORKScreenMetricChoiceCellLastBaselineToBottom,
         {         24,        24,        24,        24,        24,        24,        24,        24},      // ORKScreenMetricChoiceCellLabelLastBaselineToLabelFirstBaseline,
