@@ -292,9 +292,10 @@ static const CGFloat LabelLeadingPadding = 10.0;
 }
 
 - (void)updateSelectedItem {
-    if (_immediateNavigation == NO) {
-        [self updateCheckView];
-    }
+//    if (_immediateNavigation == NO) {
+//        [self updateCheckView];
+//    }
+    [self updateCheckView];
 }
 
 - (void)setImmediateNavigation:(BOOL)immediateNavigation {
