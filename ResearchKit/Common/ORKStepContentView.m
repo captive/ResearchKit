@@ -567,6 +567,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     [_detailTextLabel setFont:[UIFont fontWithDescriptor:descriptor size:[[descriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue]]];
     _detailTextLabel.textAlignment = NSTextAlignmentLeft;
     _detailTextLabel.numberOfLines = 0;
+    _detailTextLabel.textColor = [UIColor whiteColor];
     [self addSubview:_detailTextLabel];
     [self setupDetailTextLabelConstraints];
 }
