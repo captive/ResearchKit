@@ -521,10 +521,7 @@
 
 - (void)setSkipButtonItem:(UIBarButtonItem *)skipButtonItem {
     UIBarButtonItem * button = nil;
-    //TODO only skip phone
-    if ([self.step.identifier isEqualToString: @"phoneStep"]) {
-        button = skipButtonItem;
-    }
+    button = skipButtonItem;
     [super setSkipButtonItem:button];
     
     _navigationFooterView.skipButtonItem = self.skipButtonItem;
