@@ -409,12 +409,12 @@ static const CGFloat LabelCheckViewPadding = 10.0;
         _checkView = [[ORKCheckmarkView alloc] initWithDefaults];
     }
 
-    //NEW BRANCH
-    _checkView.layer.cornerRadius = CheckViewDimension * 0.5;
-    _checkView.layer.borderWidth = CheckViewBorderWidth;
-    _checkView.layer.borderColor = [ORKColor(ProjectBackgroundColorKey) CGColor];
-    _checkView.layer.masksToBounds = YES;
-    _checkView.contentMode = UIViewContentModeCenter;
+    //TODO NEW BRANCH -- CheckViewDimension
+//    _checkView.layer.cornerRadius = CheckViewDimension * 0.5;
+//    _checkView.layer.borderWidth = CheckViewBorderWidth;
+//    _checkView.layer.borderColor = [ORKColor(ProjectBackgroundColorKey) CGColor];
+//    _checkView.layer.masksToBounds = YES;
+//    _checkView.contentMode = UIViewContentModeCenter;
 
     [_checkView setChecked:NO];
     [self.containerView addSubview:_checkView];

@@ -109,10 +109,10 @@
     _navigationFooterView.skipButtonItem = self.skipButtonItem;
 }
 
-- (void)setCancelButtonItem:(UIBarButtonItem *)cancelButtonItem {
-    [super setCancelButtonItem:cancelButtonItem];
-    _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
-}
+//- (void)setCancelButtonItem:(UIBarButtonItem *)cancelButtonItem {
+//    [super setCancelButtonItem:cancelButtonItem];
+//    _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
+//}
 //TODO submit new PR
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
