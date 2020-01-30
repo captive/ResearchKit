@@ -161,9 +161,6 @@ static const CGFloat LabelCheckViewPadding = 10.0;
             CGRect lineBounds = CGRectMake(ORKSurveyItemMargin, self.containerView.bounds.size.height - 1.0, self.containerView.bounds.size.width - ORKSurveyItemMargin, 0.5);
             lineLayer.path = [UIBezierPath bezierPathWithRect:lineBounds].CGPath;
             lineLayer.zPosition = 0.0f;
-            //NEW BRANCH
-            [lineLayer setFillColor: [ORKColor(ProjectFrontendColorKey) CGColor]];
-
         }
         
         lineLayer.fillColor = borderColor.CGColor;
@@ -472,18 +469,6 @@ static const CGFloat LabelCheckViewPadding = 10.0;
 
 - (void)updateCheckView {
     if (_checkView) {
-        
-        //NEW BRANCH
-        if (_cellSelected) {
-            _checkView.backgroundColor = self.tintColor;
-            _checkView.image = [[UIImage imageNamed:@"checkmark" inBundle:ORKBundle() compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            _checkView.tintColor = ORKColor(ProjectFrontendColorKey);
-        }
-        else {
-            _checkView.backgroundColor = UIColor.clearColor;
-            _checkView.image = nil;
-        }
-
         [_checkView setChecked:_cellSelected];
     }
 }

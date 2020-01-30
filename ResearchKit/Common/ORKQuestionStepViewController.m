@@ -629,8 +629,9 @@ static const CGFloat DelayBeforeAutoScroll = 0.25;
 // So user is able to review the answer when it is present.
 - (BOOL)isStepImmediateNavigation {
     // FIXME: - add explicit property in QuestionStep to dictate this behavior
-//    return [self.questionStep isFormatImmediateNavigation] && [self hasAnswer] == NO && !self.isBeingReviewed;
-    return NO;
+    // TODO: This line is disabled from Apple
+    return [self.questionStep isFormatImmediateNavigation] && [self hasAnswer] == NO && !self.isBeingReviewed;
+//    return NO;
 }
 
 #pragma mark - ORKQuestionStepCustomViewDelegate
