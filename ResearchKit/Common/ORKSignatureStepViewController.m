@@ -77,7 +77,7 @@
             [_clearButton setTitle:ORKLocalizedString(@"BUTTON_CLEAR", nil) forState:UIControlStateNormal];
             _clearButton.translatesAutoresizingMaskIntoConstraints = NO;
             _clearButton.alpha = 0;
-            _clearButton.tintColor = [UIColor whiteColor];
+
             [self addSubview:_clearButton];
         }
         

@@ -157,12 +157,14 @@ static NSString *const FilledBulletString = @"\u25CF";
         [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(textFieldTextDidChange:) name:UITextFieldTextDidChangeNotification object:self];
         
         // set font size to adjust the cell textfield height
-        self.font = [UIFont systemFontOfSize:22];
+        // TODO       self.font = [UIFont systemFontOfSize:22];
         
         self.layer.cornerRadius=8.0f;
         self.layer.masksToBounds=YES;
         self.layer.borderColor= [[ORKColor(ProjectBackgroundColorKey) colorWithAlphaComponent:0.1] CGColor];
         self.layer.borderWidth= 1.0f;
+        
+//        UIView* paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, self.frame.size.height)];
     }
     return self;
 }

@@ -706,7 +706,7 @@ static const CGFloat DelayBeforeAutoScroll = 0.25;
             // Add new section
             section = [self createSectionWithItem:item];
             [_sections addObject:section];
-            //TODO section.title = item.text; 
+
             [section addFormItem:item];
 
         } else {
@@ -716,6 +716,11 @@ static const CGFloat DelayBeforeAutoScroll = 0.25;
                 [_sections addObject:section];
             }
             [section addFormItem:item];
+        }
+        
+        //TODO Add new Section
+        if (section != nil && item.sectionTitle != nil) {
+            section.title = item.sectionTitle;
         }
     }
 }
