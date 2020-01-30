@@ -162,7 +162,6 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
     }
     _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _titleLabel.textAlignment = NSTextAlignmentNatural;
-    _titleLabel.textColor = ORKColor(ProjectBackgroundColorKey);
     [_titleLabel setFont:[self titleLabelFont]];
 }
 

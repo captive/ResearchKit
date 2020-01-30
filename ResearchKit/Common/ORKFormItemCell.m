@@ -1124,6 +1124,7 @@ static const CGFloat InlineFormItemLabelToTextFieldPadding = 3.0;
     _textView.textAlignment = NSTextAlignmentNatural;
     _textView.scrollEnabled = NO;
     _textView.placeholder = self.formItem.placeholder;
+    _textView.backgroundColor = [UIColor clearColor];
     
     [self applyAnswerFormat];
     [self answerDidChange];

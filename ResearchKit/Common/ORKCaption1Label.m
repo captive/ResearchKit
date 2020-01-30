@@ -39,9 +39,6 @@
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
-        self.textColor = ORKColor(ProjectBackgroundColorKey);
-    }
     return self;
 }
 
