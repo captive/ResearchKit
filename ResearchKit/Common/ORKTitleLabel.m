@@ -37,7 +37,6 @@
 - (void)updateAppearance {
     self.font = [[self class] defaultFont];
     [self invalidateIntrinsicContentSize];
-    //TODO self.textColor = [UIColor whiteColor];
 }
 
 + (UIFont *)defaultFont {

@@ -145,10 +145,11 @@ static const float FirstSectionHeaderPadding = 24.0;
     [_tableContainerView sizeHeaderToFit];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [_tableContainerView layoutIfNeeded];
-}
+// TODO Apple add [_tableContainerView layoutIfNeeded]; in the 164 lines, should test the review step
+// - (void)viewWillAppear:(BOOL)animated {
+//     [super viewWillAppear:animated];
+//     [_tableContainerView layoutIfNeeded];
+// }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -160,6 +161,7 @@ static const float FirstSectionHeaderPadding = 24.0;
 - (void)setupTableContainerView {
     if (!_tableContainerView) {
         _tableContainerView = [[ORKTableContainerView alloc] initWithStyle:UITableViewStyleGrouped pinNavigationContainer:NO];
+        [_tableContainerView layoutIfNeeded];
         _tableContainerView.tableView.dataSource = self;
         _tableContainerView.tableView.delegate = self;
         _tableContainerView.tableView.clipsToBounds = YES;

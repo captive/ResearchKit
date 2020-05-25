@@ -32,21 +32,12 @@
 #import "ORKSelectionTitleLabel.h"
 
 #import "ORKHelpers_Internal.h"
-#import "ORKSkin.h"
+
 
 @implementation ORKSelectionTitleLabel
 
 + (UIFont *)defaultFont {
     return [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-//        self.textColor = ORKColor(ProjectBackgroundColorKey);
-    }
-    return self;
 }
 
 @end

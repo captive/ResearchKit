@@ -46,7 +46,7 @@ static const CGFloat activityIndicatorPadding = 24.0;
     UIVisualEffectView *effectView;
     UIColor *_appTintColor;
     
-    BOOL _continueButtonJustTapped;
+    BOOL _continueOrSkipButtonJustTapped;
     BOOL _removeVisualEffect;
     NSMutableArray *_regularConstraints;
 }
@@ -119,7 +119,6 @@ static const CGFloat activityIndicatorPadding = 24.0;
     [_continueButton addTarget:self action:@selector(continueButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_continueButton];
 }
-//TODO review _appTintColor and setupCancelButton
 
 - (void)setupSkipButton {
     if (!_skipButton) {
@@ -190,7 +189,9 @@ static const CGFloat activityIndicatorPadding = 24.0;
     // Disable button for 0.5s
     ((UIView *)sender).userInteractionEnabled = NO;
     ((ORKTextButton *)sender).isInTransition = YES;
+    _continueOrSkipButtonJustTapped = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _continueOrSkipButtonJustTapped = NO;
         // Re-enable skip button
         ((UIView *)sender).userInteractionEnabled = YES;
         ((ORKTextButton *)sender).isInTransition = NO;
@@ -207,9 +208,9 @@ static const CGFloat activityIndicatorPadding = 24.0;
     // Disable button for 0.5s
     ((UIView *)sender).userInteractionEnabled = NO;
     ((ORKTextButton *)sender).isInTransition = YES;
-    _continueButtonJustTapped = YES;
+    _continueOrSkipButtonJustTapped = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _continueButtonJustTapped = NO;
+        _continueOrSkipButtonJustTapped = NO;
         ((ORKTextButton *)sender).isInTransition = NO;
         [self updateContinueAndSkipEnabled];
     });
@@ -252,6 +253,10 @@ static const CGFloat activityIndicatorPadding = 24.0;
     return !([self neverHasContinueButton] && [self neverHasSkipButton] && [self neverHasFootnote]);
 }
 
+- (BOOL)wasContinueOrSkipButtonJustPressed {
+    return _continueOrSkipButtonJustTapped;
+}
+
 - (void)updateContinueAndSkipEnabled {
     [_skipButton setTitle:_skipButtonItem.title ? : ORKLocalizedString(@"BUTTON_SKIP", nil) forState:UIControlStateNormal];
 
@@ -274,7 +279,7 @@ static const CGFloat activityIndicatorPadding = 24.0;
     
     // Do not modify _continueButton.userInteractionEnabled during continueButton disable period
     // or when the activity indicator is present
-    if (_continueButtonJustTapped == NO && _activityIndicatorView == nil) {
+    if (_continueOrSkipButtonJustTapped == NO && _activityIndicatorView == nil) {
         _continueButton.userInteractionEnabled = (_continueEnabled || (_useNextForSkip && _skipButtonItem));
     }
     

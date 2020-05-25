@@ -404,7 +404,13 @@ static const CGFloat InlineFormItemLabelToTextFieldPadding = 3.0;
 
 #pragma mark - ORKFormItemTextFieldBasedCell
 
-@interface ORKFormItemTextFieldBasedCell ()
+@protocol ORKDontKnowButtonResponder <NSObject>
+
+- (void)dontKnowButtonWasPressed;
+
+@end
+
+@interface ORKFormItemTextFieldBasedCell () <ORKDontKnowButtonResponder>
 
 - (ORKUnitTextField *)textField;
 
@@ -1532,8 +1538,23 @@ static const CGFloat InlineFormItemLabelToTextFieldPadding = 3.0;
     return NO;
 }
 
-@end
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    BOOL shouldEndEditing = [super textFieldShouldEndEditing:textField];
+    
+    [self inputValueDidChange];
+    
+    return shouldEndEditing;
+}
 
+- (void)dontKnowButtonWasPressed
+{
+    [super dontKnowButtonWasPressed];
+    
+    [self.textFieldView.textField setText:nil];
+}
+
+@end
 
 #pragma mark - ORKFormItemLocationCell
 
