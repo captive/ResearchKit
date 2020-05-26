@@ -76,7 +76,9 @@ static const CGFloat FooterViewHeightOffset = 20.0;
         [self setupTableViewWithStyle:style];
         
         _scrollView = _tableView;
-        self.isNavigationContainerScrollable = !pinNavigationContainer;
+//        self.isNavigationContainerScrollable = !pinNavigationContainer;
+        //TODO when set YES, the page will move a little after clicking
+        self.isNavigationContainerScrollable = NO;
         
         [self addStepContentView];
         [self setupTableViewConstraints];
