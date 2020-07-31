@@ -412,7 +412,7 @@ static const CGFloat InlineFormItemLabelToTextFieldPadding = 3.0;
 
 @interface ORKFormItemTextFieldBasedCell () <ORKDontKnowButtonResponder>
 
-- (ORKUnitTextField *)textField;
+// - (ORKUnitTextField *)textField;
 
 @property (nonatomic, readonly) ORKTextFieldView *textFieldView;
 @property (nonatomic) ORKDontKnowButton *dontKnowButton;

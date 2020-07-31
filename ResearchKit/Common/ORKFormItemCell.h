@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class ORKFormItem;
 @class ORKFormItemCell;
+@class ORKUnitTextField;
 
 @protocol ORKFormItemCellDelegate <NSObject>
 
@@ -75,6 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ORKFormItemTextFieldBasedCell : ORKFormItemCell <UITextFieldDelegate>
 
+- (ORKUnitTextField *)textField;
 - (void)removeEditingHighlight;
 
 @end

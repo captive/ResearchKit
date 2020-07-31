@@ -419,6 +419,12 @@ static const CGFloat DelayBeforeAutoScroll = 0.25;
 -(void)setCellAnswer:(NSString*) value withCell:(UITableViewCell*) tableCell{
     ORKFormItemCell *cell = (ORKFormItemCell *)tableCell;
     cell.answer  = value;
+    // Call textFieldShouldEndEditing method to update Error lable: ORKFormItemCell.m 769 lines: textFieldShouldEndEditing
+    if ([cell isKindOfClass: [ORKFormItemTextFieldBasedCell class]]){
+        ORKFormItemTextFieldBasedCell* textFiledCell = (ORKFormItemTextFieldBasedCell*) cell;
+        UITextField* textField = (UITextField*) [textFiledCell textField];
+        [textFiledCell textFieldShouldEndEditing: textField];
+    }
 }
 
 - (void)updateAnsweredSections {
