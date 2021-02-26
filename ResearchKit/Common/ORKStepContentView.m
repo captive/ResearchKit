@@ -354,14 +354,6 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     if (!_titleLabel) {
         _titleLabel = [ORKTitleLabel new];
     }
-    //TODO textColor
-    /*
-    if (self.delegate != nil && [self.delegate isKindOfClass: [ORKInstructionStepContainerView class]]) {
-        _titleLabel.textColor = [UIColor whiteColor];
-    }else {
-        _titleLabel.textColor = [UIColor whiteColor];
-    }
-    */
     _titleLabel.numberOfLines = 0;
     _titleLabel.textAlignment = _stepHeaderTextAlignment;
     [self addSubview:_titleLabel];

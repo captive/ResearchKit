@@ -121,6 +121,7 @@ static const CGFloat FooterViewHeightOffset = 20.0;
         [self removeFooterView];
         [self addSubview:self.navigationFooterView];
     }
+    
     [self setupNavigationContainerViewConstraints];
     [self updateTableViewBottomConstraint];
 }
