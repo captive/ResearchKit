@@ -212,6 +212,9 @@ ORK_CLASS_AVAILABLE
  */
 - (void)validateParameters;
 
+
+- (NSString *)localizedInvalidValueStringWithAnswerString:(NSString *)text;
+
 /**
  Some answer formats are constructed of other answer formats. This method allows
  a subclass to return a different answer format for use in defining the UI/UX for
