@@ -83,7 +83,7 @@ ORK_DESIGNATE_CODING_AND_SERIALIZATION_INITIALIZERS(ORKWeightAnswerFormat)
 
 @property (nonatomic, strong, nullable) HKUnit *healthKitUserUnit;
 
-- (nullable NSString *)localizedInvalidValueStringWithAnswerString:(nullable NSString *)text;
+// - (nullable NSString *)localizedInvalidValueStringWithAnswerString:(nullable NSString *)text;
 
 - (nullable NSString *)stringForAnswer:(id)answer;
 

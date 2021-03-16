@@ -213,7 +213,7 @@ ORK_CLASS_AVAILABLE
 - (void)validateParameters;
 
 
-- (NSString *)localizedInvalidValueStringWithAnswerString:(NSString *)text;
+- (nullable NSString *)localizedInvalidValueStringWithAnswerString:(nullable NSString *)text;
 
 /**
  Some answer formats are constructed of other answer formats. This method allows
