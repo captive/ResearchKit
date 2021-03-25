@@ -172,6 +172,7 @@ static const CGFloat SelectAllThatApplyBottomPadding = 6.0;
     _detailTextLabel.numberOfLines = 0;
     _detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _detailTextLabel.textAlignment = NSTextAlignmentNatural;
+    _detailTextLabel.textColor = [UIColor redColor];
     [_detailTextLabel setFont:[self detailTextLabelFont]];
 }
 
