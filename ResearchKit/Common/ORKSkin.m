@@ -144,6 +144,7 @@ static NSMutableDictionary *colors() {
                     // Label's color
                     ProjectBackgroundColorKey: UIColor.blackColor,
                     ProjectFrontendColorKey:  UIColor.systemBlueColor,
+//                    ProjectFrontendColorKey: [UIColor colorWithRed: 0.12 green: 0.52 blue: 0.23 alpha: 1.00],
                     
                     ORKSignatureColorKey: ORKRGB(0x000000),
                     ORKBackgroundColorKey: backgroundColor,
