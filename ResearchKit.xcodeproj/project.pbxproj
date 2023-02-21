@@ -1018,7 +1018,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00B1F7842241503900D022FE /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		00C266882302244300337E0B /* ORKCustomStepViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKCustomStepViewController.h; sourceTree = "<group>"; };
 		00C266892302244300337E0B /* ORKCustomStepViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORKCustomStepViewController.m; sourceTree = "<group>"; };
 		00C2668C23022CD400337E0B /* ORKCustomStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKCustomStep.h; sourceTree = "<group>"; };
@@ -1803,7 +1802,6 @@
 		B1B34A061AA10EE4005FAD66 /* ar */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = ar; path = ar.lproj/ResearchKit.strings; sourceTree = "<group>"; };
 		B1C0F4E21A9BA65F0022C153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ResearchKit.strings; sourceTree = "<group>"; };
 		B1C1DE4F196F541F00F75544 /* ResearchKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResearchKit.h; sourceTree = "<group>"; };
-		B1C7955D1A9FBF04007279BA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B8760F291AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKScaleRangeDescriptionLabel.h; sourceTree = "<group>"; };
 		B8760F2A1AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKScaleRangeDescriptionLabel.m; sourceTree = "<group>"; };
 		BA0AA68E1EAEC0B600671ACE /* ORKStroopContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKStroopContentView.h; sourceTree = "<group>"; };
@@ -2497,8 +2495,6 @@
 		3FFF183F1829DB1D00167070 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00B1F7842241503900D022FE /* Speech.framework */,
-				B1C7955D1A9FBF04007279BA /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2513,7 +2509,7 @@
 			name = "3D Model Manager";
 			sourceTree = "<group>";
 		};
-		511987B624612C95004FC2C7 /* USDZ Model Manager */ = {
+		511987B624612C95004FC2C7 /* Custom Vision View */ = {
 			isa = PBXGroup;
 			children = (
 				51198767245CA50D004FC2C7 /* ORKUSDZModelManagerScene.h */,
@@ -2704,7 +2700,7 @@
 		5175144B2459EBD3009E8FFC /* 3D Model */ = {
 			isa = PBXGroup;
 			children = (
-				511987B624612C95004FC2C7 /* USDZ Model Manager */,
+				511987B624612C95004FC2C7 /* Custom Vision View */,
 				51198798245FC31C004FC2C7 /* 3D Model Manager */,
 				5175144C2459EBF0009E8FFC /* ORK3DModelStep.h */,
 				5175144D2459EBF0009E8FFC /* ORK3DModelStep.m */,
