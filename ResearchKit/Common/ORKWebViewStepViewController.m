@@ -508,7 +508,7 @@ static const CGFloat ORKSignatureTopPadding = 37.0;
         }
     }];
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
