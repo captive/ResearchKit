@@ -29,9 +29,11 @@
  */
 
 
-@import UIKit;
-
+#import <UIKit/UIKit.h>
+#if TARGET_OS_IOS
 #import <ResearchKit/ORKDefines.h>
+#endif
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -61,24 +63,6 @@ ORK_EXTERN NSString *const ORKCaptionTextColorKey;
 
 /// Color used for a "blue" highlight
 ORK_EXTERN NSString *const ORKBlueHighlightColorKey;
-
-/// Default color used for legend, title and text on ORKPieChartView
-ORK_EXTERN NSString *const ORKChartDefaultTextColorKey;
-
-/// Default color used for axes of ORKGraphChartView
-ORK_EXTERN NSString *const ORKGraphAxisColorKey;
-
-/// Default color used for titles on axes of ORKGraphChartView
-ORK_EXTERN NSString *const ORKGraphAxisTitleColorKey;
-
-/// Default color used for scrubber line of ORKGraphChartView
-ORK_EXTERN NSString *const ORKGraphScrubberLineColorKey;
-
-/// Default color used for scrubber thumb of ORKGraphChartView
-ORK_EXTERN NSString *const ORKGraphScrubberThumbColorKey;
-
-/// Default color used for reference line of ORKGraphChartView
-ORK_EXTERN NSString *const ORKGraphReferenceLineColorKey;
 
 /// Default color used for auxiliary image tint of ORKInstructionStepView
 ORK_EXTERN NSString *const ORKAuxiliaryImageTintColorKey;
@@ -113,11 +97,23 @@ ORK_EXTERN NSString *const ORKResetDoneButtonKey;
 /// Return the color for a specified ORK...ColorKey
 UIColor *ORKColor(NSString *colorKey);
 
+/// Return minimum height for form step header view
+ORK_EXTERN CGFloat ORKFormStepMinimumHeaderHeight;
+
+/// Return minimum height for large text form step header view
+ORK_EXTERN CGFloat ORKFormStepLargeTextMinimumHeaderHeight;
+
+/// Return step container title to body topPadding standard
+ORK_EXTERN CGFloat ORKStepContainerTitleToBodyTopPaddingStandard;
+
 /// Return minimum height for question step header view
 ORK_EXTERN CGFloat ORKQuestionStepMinimumHeaderHeight;
 
 /// Default CGFloat used for rounded corner radii for card view
 ORK_EXTERN CGFloat ORKCardDefaultCornerRadii;
+
+/// Default CGFloat used for rounded corner radii for image choice button image view
+ORK_EXTERN CGFloat ORKImageChoiceButtonCornerRadii;
 
 /// Default CGFloat used for border width for card view
 ORK_EXTERN CGFloat ORKCardDefaultBorderWidth;
@@ -168,6 +164,9 @@ void ORKColorSetColorForKey(NSString *key, UIColor *color);
 + (UIColor *)ork_grayColor;
 + (UIColor *)ork_darkGrayColor;
 + (UIColor *)ork_borderGrayColor;
+
++ (UIColor *)ork_splGrayColor;
++ (UIColor *)ork_ringViewStrokeColor;
 
 @end
 

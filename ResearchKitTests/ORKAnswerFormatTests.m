@@ -30,7 +30,8 @@
 
 
 @import XCTest;
-@import ResearchKit.Private;
+@import ResearchKit;
+@import ResearchKit_Private;
 #import "ORKAnswerFormat_Internal.h"
 #import "ORKPicker.h"
 #import "ORKPickerTestDelegate.h"
@@ -958,6 +959,7 @@
                                expectedSecondRow:ORKDoubleInvalidValue]);
 }
 
+
 - (void)testContinuousScaleAnswerFormat {
     
     XCTAssertThrowsSpecificNamed([ORKAnswerFormat continuousScaleAnswerFormatWithMaximumValue:10
@@ -1107,7 +1109,7 @@
     {
         NSUInteger maxFractionDigits = 5;
         ORKContinuousScaleAnswerFormat* scaleAnswer = [[ORKContinuousScaleAnswerFormat alloc] initWithMaximumValue:10 minimumValue:1 defaultValue:0.0 maximumFractionDigits:maxFractionDigits];
-        XCTAssertEqualObjects([scaleAnswer.numberFormatter stringFromNumber:@99.12345],  @"99.1235");
+        XCTAssertEqualObjects([scaleAnswer.numberFormatter stringFromNumber:@99.12345],  @"99.1234");
     }
     {
         NSUInteger maxFractionDigits = -1;
@@ -1326,6 +1328,9 @@
     XCTAssertEqual([[answerFormat defaultComponents] month], 01);
     XCTAssertEqual([[answerFormat defaultComponents] day], 24);
     XCTAssertEqual([[answerFormat defaultComponents] year], 1984);
+    
+    //check that `hideUnitWhenAnswerIsEmpty` only works on `ORKNumericAnswerFormat`
+    XCTAssertThrows([(ORKNumericAnswerFormat*)answerFormat hideUnitWhenAnswerIsEmpty]);
 }
 
 - (void)testNumericAnswerFormat {
@@ -1342,6 +1347,7 @@
     XCTAssertEqual([answerFormatWithIntegerStyle maximum], [NSNumber numberWithInteger:100]);
     XCTAssertEqual([answerFormatWithIntegerStyle maximumFractionDigits], @(0));
     
+    XCTAssertTrue([answerFormatWithIntegerStyle hideUnitWhenAnswerIsEmpty]);
     
     ORKNumericAnswerFormat *answerFormatWithDecimalStyle = [[ORKNumericAnswerFormat alloc] initWithStyle:ORKNumericAnswerStyleDecimal];
     XCTAssertEqual([answerFormatWithDecimalStyle style ], ORKNumericAnswerStyleDecimal);
@@ -1505,6 +1511,7 @@
     XCTAssertEqual([[[answerFormat textChoices] objectAtIndex:1] value], [NSNumber numberWithInteger:2]);
 }
 
+#if ORK_FEATURE_HEALTHKIT_AUTHORIZATION
 - (void)testHealthKitCharacteristicTypeAnswerFormat {
     
     HKCharacteristicType *biologicalSex = [HKCharacteristicType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
@@ -1592,6 +1599,7 @@
     XCTAssertEqual([answerFormat numericAnswerStyle], ORKNumericAnswerStyleInteger);
     XCTAssertEqual([answerFormat quantityType], calories);
 }
+#endif
 
 - (void)testDateAnswerFormat {
     
