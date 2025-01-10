@@ -396,7 +396,7 @@ NSString * const ORKFormStepViewAccessibilityIdentifier = @"ORKFormStepView";
 @interface ORKFormStepViewController () <UITableViewDelegate, ORKFormItemCellDelegate, ORKTableContainerViewDelegate, ORKChoiceOtherViewCellDelegate, ORKLearnMoreViewDelegate>
 
 @property (nonatomic, strong) ORKTableContainerView *tableContainer;
-@property (nonatomic, strong) UITableView *tableView;
+
 @property (nonatomic, strong) UITableViewDiffableDataSource<NSString *, ORKTableCellItemIdentifier *> *diffableDataSource;
 @property (nonatomic, strong) ORKStepContentView *headerView;
 
